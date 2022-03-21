@@ -1,5 +1,5 @@
 package Main;
-// Program for calculating volume of concrete needed to fill certain demensions for curb-gutter, driveway,
+// Program for calculating volume of concrete needed to fill certain dimensions for curb-gutter, driveway,
 // patio, sidewalk_patio, and steps.
 // Author: Andy Z.
 
@@ -16,7 +16,6 @@ public class ConcCalc {
     }
 
     // check if whole number, if not round to nearest quarter
-    // use in output method
     public static double roundUp(double num) {
         if (num % 1 == 0) {
             return num;
@@ -33,6 +32,18 @@ public class ConcCalc {
         double volInFt = (width * thicknessFt * length);
         double result = volToYard(volInFt);
         return roundUp(result);
+    }
 
+    // curb-gutter method
+    public static double curb_gutter(double baseWidth, double toeHeight, double faceHeight, double curbWidth, double totalLength) {
+
+        double baseWidthFt = inToFt(baseWidth);
+        double toeHeightFt = inToFt(toeHeight);
+        double faceHeightFt = inToFt(faceHeight);
+        double curbWidthFt = inToFt(curbWidth);
+
+        double volInFt = sidewalk_patio(baseWidthFt, toeHeightFt, totalLength) + sidewalk_patio(curbWidthFt, faceHeightFt, totalLength);
+        double result = volToYard(volInFt);
+        return roundUp(result);
     }
 }
