@@ -12,6 +12,7 @@ public class Main {
         System.out.println("3. Driveway");
         System.out.println("4. Patio");
 
+        // TODO: improve readability
         int choice = scan.nextInt();
         switch (choice) {
              case 1:
